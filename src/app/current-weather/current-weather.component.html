@@ -1,0 +1,24 @@
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+
+      <h1 class="mb-4 text-white">Weather App</h1>
+
+      <div class="input-group mb-3">
+        <input #cityName type="text" class="form-control" placeholder="Enter city name" aria-label="City name">
+        <button (click)="searchWeather(cityName.value)" class="btn btn-primary">Search</button>
+        <button (click)="addToFavorites(cityName.value)" class="btn btn-secondary ms-2 text-white">Add to Favorites</button>
+      </div>
+
+      <div *ngIf="weatherData" class="card mt-4">
+        <div class="card-body">
+          <h2 class="card-title">Weather in {{ weatherData.name }}</h2>
+          <p class="card-text">Temperature: {{ weatherData.main.temp - 273.15 | number:'1.0-0' }}°C</p>
+        </div>
+      </div>
+
+      <app-favorites [favorites]="favoriteCities" (favoritesChange)="favoriteCities = $event" class="mt-4"></app-favorites>
+
+    </div>
+  </div>
+</div>

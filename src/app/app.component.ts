@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'weather';
+  favorites: string[] = [];
+
+  updateFavorites(favoriteCities: string[]) {
+    this.favorites = favoriteCities;
+  }
 }

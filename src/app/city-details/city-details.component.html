@@ -1,0 +1,22 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+
+      <a routerLink="/" class="btn btn-secondary mb-4">Back to main page</a>
+
+      <div *ngIf="weatherData" class="card">
+        <div class="card-body">
+          <h3 class="card-title">Weather Details for {{ weatherData.name }}</h3>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Temperature: {{ weatherData.main.temp - 273.15 | number:'1.0-0' }}°C</li>
+            <li class="list-group-item">Humidity: {{ weatherData.main.humidity }}%</li>
+            <li class="list-group-item">Pressure: {{ weatherData.main.pressure }} hPa</li>
+            <li class="list-group-item">Wind Speed: {{ weatherData.wind.speed }} m/s</li>
+            <li class="list-group-item">Wind Direction: {{ weatherData.wind.deg }}°</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

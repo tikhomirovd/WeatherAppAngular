@@ -1,0 +1,18 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+
+      <h3 class="mb-4 text-white">Favorites</h3>
+
+      <ul class="list-group">
+        <li *ngFor="let city of favorites" class="list-group-item d-flex justify-content-between align-items-center">
+          <a [routerLink]="['/details', city.name]" class="text-decoration-none">
+            {{ city.name }} - {{ city.temp - 273.15 | number:'1.0-0' }}°C
+          </a>
+          <button (click)="removeFromFavorites(city)" class="btn btn-danger">Remove</button>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>
